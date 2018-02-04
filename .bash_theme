@@ -1,26 +1,28 @@
-orange=$(tput setaf 166);
-yellow=$(tput setaf 228);
-green=$(tput setaf 71);
-blue=$(tput setaf 39)
-magenta=$(tput setaf 88);
 bold=$(tput bold);
 reset=$(tput sgr0);
+purple=55;
+black=16;
+pinkish=210;
+greenish=112;
 
+linecolor=$(tput setab ${purple});
+userhostfg=$(tput setaf ${black});
+workingdirfg=$(tput setaf ${pinkish})
+dollarsignfg=$(tput setaf ${greenish});
 
-PS1="\[${bold}\]\n";                    # bold and newline
-PS1+="\[${magenta}\] ░░░ ";              # start decoration chars
-PS1+="\u@\h:";                            # username@hostname
-PS1+="\[${blue}\]\w";                  # working directory
-PS1+="\n";                              #
-PS1+="\[${magenta}\] ░░░ ";              # start decoration chars
-PS1+="\[${yellow}\]\$ ";                # `$`
+PS1="";                    
+PS1+="\[${bold}\]";                   
+PS1+="\[${linecolor}\]";              
+PS1+="\[${userhostfg}\]";             
+PS1+="\u@\h:";                        
+PS1+="\[${reset}\]";                  
+PS1+="\[${linecolor}\]";              
+PS1+="\[${workingdirfg}\]\w";         
+PS1+="\[${reset}\]\[${bold}\]\[${dollarsignfg}\]\$\[${reset}\] ";
 export PS1;
 
-trap 'printf "$(tput sgr0)\n"' DEBUG   # resets tput and adds newline for output
 
-
-PS2="\[${magenta}\] ░░░ ";
-PS2+="\[${yellow}\]> ";
+PS2="\[${bold}\]\[${dollarsignfg}\]>\[${reset}\] ";
 export PS2;
 
 
