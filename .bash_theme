@@ -1,0 +1,58 @@
+orange=$(tput setaf 166);
+yellow=$(tput setaf 228);
+green=$(tput setaf 71);
+blue=$(tput setaf 39)
+magenta=$(tput setaf 88);
+bold=$(tput bold);
+reset=$(tput sgr0);
+
+
+PS1="\[${bold}\]\n";                    # bold and newline
+PS1+="\[${magenta}\] ░░░ ";              # start decoration chars
+PS1+="\u@\h:";                            # username@hostname
+PS1+="\[${blue}\]\w";                  # working directory
+PS1+="\n";                              #
+PS1+="\[${magenta}\] ░░░ ";              # start decoration chars
+PS1+="\[${yellow}\]\$ ";                # `$`
+export PS1;
+
+trap 'printf "$(tput sgr0)\n"' DEBUG   # resets tput and adds newline for output
+
+
+PS2="\[${magenta}\] ░░░ ";
+PS2+="\[${yellow}\]> ";
+export PS2;
+
+
+###                    ###
+### Special characters ###
+###                    ###
+
+# \h the hostname up to the first .
+# \n newline
+# \s the name of the shell
+# \t the current time in 24-hour format
+# \u the username of the current user
+# \w the current working directory
+# \W the basename of the current working directory
+
+
+###        ###
+### Colors ###
+###        ###
+
+# $(tput setaf 166) # starts the color
+# $(tput sgr0) # resets the color
+
+# see colors at https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg
+
+
+###               ###
+### Configuration ###
+###               ###
+
+# Put the script below into your .bashrc (and remove the initial #s) so that this file is loaded
+
+#if [ -f ~/.bash_theme ]; then
+#    . ~/.bash_theme
+#fi
