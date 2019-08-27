@@ -1,0 +1,13 @@
+alias chrome="/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe"
+alias explorer=explorer.exe
+
+# add browser path
+export DISPLAY=:0
+export BROWSER=/mnt/c/Program\ Files\ \(x86\)/Google/Chrome/Application/chrome.exe
+
+# Uncomment and add block below to ~/.bashrc
+
+# Include WSL adaptations
+#if [ -f ~/.bash_wsl_adapt ]; then
+#    . ~/.bash_wsl_adapt
+#fi
